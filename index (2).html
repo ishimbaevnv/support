@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FazanCredit (Demo)</title>
+    <style>
+        /* --- Базовые настройки --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        ul { list-style: none; }
+
+        /* Имитация контента */
+        header { background: #fff; padding: 20px; text-align: center; font-weight: bold; color: #333; }
+        .hero { 
+            flex: 1; 
+            padding: 50px 20px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* =========================================
+           ФУТЕР
+           ========================================= */
+        footer {
+            background-color: #505ACC; /* Индиго */
+            color: #ffffff;
+            padding: 45px 0;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Основная сетка футера: 3 колонки */
+        .footer-flex {
+            display: flex;
+            justify-content: space-between; /* Распределяем по ширине */
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* 1. ЛЕВАЯ КОЛОНКА (Бренд) */
+        .footer-brand-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 400px;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .fazan-logo {
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .fazan-icon {
+            width: 28px; height: 28px;
+            background: orange;
+            border-radius: 50%;
+        }
+
+        .fin-logo {
+            display: flex;
+            align-items: center;
+            font-size: 9px;
+            line-height: 1.1;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .fin-box {
+            background: #ff0000;
+            color: white;
+            padding: 4px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .payment-systems {
+            display: flex;
+            gap: 15px;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 16px;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* 2. СРЕДНЯЯ КОЛОНКА (Меню - сдвинуто влево) */
+        .footer-nav-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-right: auto; /* Толкает правую колонку в самый край */
+            padding-left: 20px; /* Небольшой отступ от логотипов */
+        }
+
+        .footer-nav-col a {
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .footer-nav-col a:hover { opacity: 1; text-decoration: underline; }
+
+        /* 3. ПРАВАЯ КОЛОНКА (Только кнопка) */
+        .footer-btn-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Выравнивание по левому краю блока */
+            gap: 10px;
+        }
+
+        .support-label {
+            font-size: 13px;
+            opacity: 0.9;
+            max-width: 220px;
+            line-height: 1.4;
+        }
+
+        /* КНОПКА (Универсальная) */
+        .tg-btn-universal {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            
+            color: #000000 !important;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none !important;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            white-space: nowrap;
+        }
+
+        .tg-btn-universal:hover {
+            transform: translateY(-2px);
+            background-color: #f2f2f2;
+        }
+
+        /* Адаптив */
+        @media (max-width: 900px) {
+            .footer-nav-col {
+                margin-right: 0; /* Убираем "распорку" на планшетах */
+                padding-left: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-flex { flex-direction: column; gap: 30px; }
+            .footer-brand-col, .footer-nav-col, .footer-btn-col { 
+                width: 100%; 
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>Credit Service Demo</header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Контент сайта</h1>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-flex">
+            
+            <div class="footer-brand-col">
+                <div class="brand-row">
+                    <div class="fazan-logo">
+                        <div class="fazan-icon"></div> 
+                        FazanCredit
+                    </div>
+                    <span style="opacity: 0.5;">×</span>
+                    <div class="fin-logo">
+                        <div class="fin-box">ФИН<br>УСЛУГИ</div>
+                        <div>ОТ<br>МОСКОВСКОЙ<br>БИРЖИ</div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    © 2025 Все права защищены.<br>
+                    Информация на сайте не является офертой.
+                </div>
+
+                <div class="payment-systems">
+                    <span>VISA</span>
+                    <span>mastercard</span>
+                    <span>МИР</span>
+                </div>
+            </div>
+
+            <nav class="footer-nav-col">
+                <a href="#">О компании</a>
+                <a href="#">О нас</a>
+                <a href="#">Обратная связь</a>
+                <a href="#">Партнерская программа</a>
+            </nav>
+
+            <div class="footer-btn-col">
+                <div class="support-label">По всем вопросам поддержки<br>мы доступны в Телеграм:</div>
+                
+                <a href="https://t.me/YOUR_BOT" target="_blank" class="tg-btn-universal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.665 3.717L2.964 10.556C1.756 11.041 1.761 11.716 2.741 12.016L7.284 13.433L17.794 6.801C18.291 6.499 18.747 6.663 18.374 6.995L9.856 14.678L9.853 14.681L9.542 19.317C9.998 19.317 10.199 19.109 10.455 18.862L12.627 16.751L17.142 20.086C17.974 20.544 18.572 20.306 18.78 19.313L21.739 5.378C22.043 4.159 21.272 3.606 20.665 3.717Z" fill="#000000"/>
+                    </svg>
+                    Поддержка
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
